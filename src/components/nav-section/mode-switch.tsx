@@ -70,7 +70,7 @@ export default function ModeSwitch() {
     <Box
       sx={{
         position: "fixed",
-        right: 3, 
+        right: {xs: -10, md: 0}, 
         display: "flex",
         justifyContent: "flex-end",
         p: 1,

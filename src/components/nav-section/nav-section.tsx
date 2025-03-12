@@ -16,31 +16,44 @@ import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import { styled, Tab, Tabs, tabsClasses, useTheme } from "@mui/material";
+import {
+  Slide,
+  styled,
+  Tab,
+  Tabs,
+  TabsProps,
+  useScrollTrigger,
+  useTheme,
+} from "@mui/material";
 import ModeSwitch from "./mode-switch";
 
-interface Props {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window?: () => Window;
+interface NavHideProps {
+  children?: React.ReactElement<unknown>;
+}
+
+interface NavTabsProps extends TabsProps {
+  hidden?: boolean;
 }
 
 const NavTabs = styled(Tabs)(({ theme }) => ({
-  '& .MuiTabs-indicator': {
-    display: 'flex',
-    justifyContent: 'center',
+  position: "relative",
+  overflow: "hidden",
+  "& .MuiTabs-indicator": {
+    display: "flex",
+    justifyContent: "center",
     height: 5,
     backgroundColor: theme.palette.secondary.main,
-    transform: 'translateY(-5px)', 
-    borderRadius: 3, 
+    transform: "translateY(-5px)",
+    borderRadius: 3,
+    // Make sure the indicator's transition matches the Slide transition
+    transition: "all 225ms cubic-bezier(0.4, 0, 0.2, 1)",
   },
 }));
 
 
 const NavTab = styled(Tab)(({ theme }) => ({
   color: theme.palette.text.secondary,
+  textTransform: 'none',
   "&.Mui-selected": {
     color: theme.palette.text.primary,
   },
@@ -52,12 +65,23 @@ const navItems = [
   "About Me",
   "Projects",
   "Resume",
-  "Testimonials",
+  // "Testimonials",
   "Contact",
 ];
 
-export default function NavSection(props: Props) {
-  const { window } = props;
+function HideOnScroll(props: NavHideProps) {
+  const { children } = props;
+  // Get the current scroll trigger state
+  const trigger = useScrollTrigger();
+
+  return (
+    <Slide appear={false} direction="down" in={!trigger} timeout={225}>
+      {children ?? <div />}
+    </Slide>
+  );
+}
+
+export default function NavSection(props: NavHideProps) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [value, setValue] = useState(0);
@@ -88,64 +112,65 @@ export default function NavSection(props: Props) {
     </Box>
   );
 
-  const container =
-    window !== undefined ? () => window().document.body : undefined;
-
   return (
-    <Box sx={{ display: "flex" }}>
+    <>
       <CssBaseline />
-      <AppBar
-        component="nav"
-        sx={{
-          backgroundColor: "transparent",
-          backgroundImage: "none",
-          boxShadow: "none",
-        }}
-      >
-        <Toolbar sx={{ justifyContent: {xs: "flex-start", sm: "center"} }}>
-          {/* mobile icon for nav */}
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            edge="start"
-            onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
-          >
-            <MenuIcon />
-          </IconButton>
-
-          <NavTabs 
-          value={value} 
-          onChange={handleChange} 
-          scrollButtons={false}
-          variant="scrollable"
+      {/* Move CssBaseline outside of the HideOnScroll */}
+      <HideOnScroll {...props}>
+        {/* Directly wrap the AppBar with HideOnScroll */}
+        <AppBar
+          component="nav"
           sx={{
-            display: { xs: "none", sm: "flex" },
-            borderBottom: `1px solid ${theme.palette.text.primary}`,
-            pb: .5,
-            px: 2,
-            [`& .${tabsClasses.scrollButtons}`]: {
-              '&.Mui-disabled': { opacity: 0.3 },
-            },
+            backgroundColor: "transparent !important",
+            backgroundImage: "none",
+            boxShadow: "none",
           }}
+        >
+          <Toolbar
+            sx={{ justifyContent: { xs: "flex-start", sm: "center" } }}
           >
-            {navItems.map((item, index) => (
-              <NavTab
-                key={item}
-                sx={{
-                  mr: index === navItems.length - 1 ? 0 : 1,
-                }}
-                label={item}
-              />
-            ))}
-          </NavTabs>
-          
-          <ModeSwitch />
-        </Toolbar>
-      </AppBar>
+            {/* mobile icon for nav */}
+            <IconButton
+              color="inherit"
+              aria-label="open drawer"
+              edge="start"
+              onClick={handleDrawerToggle}
+              sx={{ mr: 2, display: { sm: "none" } }}
+            >
+              <MenuIcon />
+            </IconButton>
+
+            <NavTabs
+              value={value}
+              onChange={handleChange}
+              scrollButtons={false}
+              variant="scrollable"
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                borderBottom: `1px solid ${theme.palette.text.primary}`,
+                pb: 0.5,
+                px: 2,
+              }}
+            >
+              {navItems.map((item, index) => (
+                <NavTab
+                  key={item}
+                  sx={{
+                    mr: index === navItems.length - 1 ? 0 : 1,
+                  }}
+                  label={item}
+                />
+              ))}
+            </NavTabs>
+
+            <ModeSwitch />
+          </Toolbar>
+        </AppBar>
+      </HideOnScroll>
+      
+      {/* Move nav outside of HideOnScroll */}
       <nav>
         <Drawer
-          container={container}
           variant="temporary"
           open={mobileOpen}
           onClose={handleDrawerToggle}
@@ -163,6 +188,6 @@ export default function NavSection(props: Props) {
           {drawer}
         </Drawer>
       </nav>
-    </Box>
+    </>
   );
 }

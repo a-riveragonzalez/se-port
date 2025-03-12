@@ -10,7 +10,7 @@ export default function About() {
     <Container maxWidth="lg">
       <Box
         sx={{
-          my: 4,
+          my: 10,
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
