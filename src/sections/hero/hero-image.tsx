@@ -10,13 +10,15 @@ export default function HeroImage() {
   return (
     <>
       <Grid2
-        direction="row"
         size={5}
         sx={{
         //   border: "1px solid red",
-          justifyContent: "center",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-evenly",
           alignItems: "center",
           width: "100%",
+          height: "100%",
         }}
       >
         <Image
@@ -31,11 +33,11 @@ export default function HeroImage() {
           height={500}
         />
 
-        <Box sx={{ backgroundColor: "secondary.main", p: 1, borderRadius: 5 }}>
+        <Box sx={{ backgroundColor: "secondary.main", p: 1, borderRadius: 5, width: "100%" }}>
           <Typography
             variant="body1"
             align="center"
-            sx={{ fontWeight: "bolder" }}
+            sx={{ fontWeight: "bolder", fontSize: '1.1rem' }}
           >
             Languages I Work With
           </Typography>
@@ -46,12 +48,12 @@ export default function HeroImage() {
             sx={{ mt: 2 }}
             justifyContent="center"
           >
-            <Iconify icon="skill-icons:typescript" width={28} />
-            <Iconify icon="skill-icons:javascript" width={28} />
-            <Iconify icon="devicon:react" width={28} />
-            <Iconify icon="devicon:nodejs-wordmark" width={28} />
-            <Iconify icon="devicon:postgresql" width={28} />
-            <Iconify icon="devicon:amazonwebservices-wordmark" width={28} />
+            <Iconify icon="skill-icons:typescript" width={40} />
+            <Iconify icon="skill-icons:javascript" width={40} />
+            <Iconify icon="devicon:react" width={40} />
+            <Iconify icon="devicon:nodejs-wordmark" width={40} />
+            <Iconify icon="devicon:postgresql" width={40} />
+            <Iconify icon="devicon:amazonwebservices-wordmark" width={40} />
           </Stack>
         </Box>
       </Grid2>

@@ -10,7 +10,7 @@ import ContactMe from "@/sections/contact-me";
 
 export default function Home() {
   return (
-    <Container sx={{maxWidth: 'xl'}}>
+    <Container sx={{maxWidth: '1400px !important'}}>
       <Hero />
       <AboutMe />
       <WhatIDo />
