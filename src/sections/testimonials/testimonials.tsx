@@ -10,7 +10,7 @@ export default function Testimonials() {
         color: 'text.secondary',
       }}
     >
-      testimonials
+      test
     </Typography>
   );
 }

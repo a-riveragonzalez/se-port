@@ -1,7 +1,7 @@
 'use client';
 
 import * as React from "react";
-import { Box, Grid2, Theme, useMediaQuery, useTheme } from "@mui/material";
+import { Box, Container, Grid2, Theme, useMediaQuery, useTheme } from "@mui/material";
 import HeroContent from "./hero-content";
 import HeroImage from "./hero-image";
 import ArelyNameDarkMode from "@/assets/images/arely_dark_mode.png";
@@ -17,7 +17,7 @@ export default function Hero() {
 
 
   return (
-    <Box
+    <Container
       sx={{
         pt: { xs: 10, md: 20 },
         mb: { xs: 5, md: 10 },
@@ -77,6 +77,6 @@ export default function Hero() {
           <HeroImage />
         </Grid2>
       </Grid2>
-    </Box>
+    </Container>
   );
 }

@@ -7,10 +7,11 @@ import Projects from "@/sections/projects";
 import Skills from "@/sections/skills";
 import Testimonials from "@/sections/testimonials";
 import ContactMe from "@/sections/contact-me";
+import { Box } from "@mui/material";
 
 export default function Home() {
   return (
-    <Container sx={{maxWidth: '1400px !important'}}>
+    <Box >  
       <Hero />
       <AboutMe />
       <WhatIDo />
@@ -18,6 +19,6 @@ export default function Home() {
       <Skills />
       <Testimonials />
       <ContactMe />
-    </Container>
+    </Box>
   );
 }

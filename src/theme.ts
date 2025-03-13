@@ -40,6 +40,9 @@ const theme = createTheme({
         secondary: {
           main: '#FBC02D',
         },
+        background: {
+          default: '#fdfdfd',
+        },
       },
     },
     dark: {

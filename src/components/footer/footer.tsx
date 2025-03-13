@@ -14,8 +14,8 @@ export default function Footer() {
         alignItems: "center",
       }}
     >
-      <Iconify width={24} icon="octicon:mark-github-16" />
-      <Iconify width={30} icon="mdi:linkedin" />
+      <Iconify width={30} icon="fa6-brands:github" />
+      <Iconify width={30} icon="fa6-brands:linkedin" />
     </Stack>
   );
 }
