@@ -18,7 +18,6 @@ import {
 import techImageDesktop from "@/assets/images/desktop/about-me-tech-d.png";
 import techImageMobile from "@/assets/images/mobile/about-me-tech-m.png";
 
-
 export default function AboutMe() {
   const theme = useTheme();
 
@@ -75,14 +74,14 @@ export default function AboutMe() {
           justifyContent: isMobile ? "center" : "space-between",
           alignItems: "center",
           minHeight: "400px", // Add a minimum height for better visibility
-          py: 10, // Add some padding
+          py: { xs: 5, md: 10 }, // Add some padding
         }}
       >
         <Grid2 container spacing={2} sx={{ width: "100%" }}>
-          <Grid2 
-          size={{ xs: 12, md: 6 }} 
-          order={{ xs: 2, md: 1 }}
-          sx={{ pr: { xs: 0, md: 10, lg: 15 } }}
+          <Grid2
+            size={{ xs: 12, md: 6 }}
+            order={{ xs: 2, md: 1 }}
+            sx={{ pr: { xs: 0, md: 10, lg: 15 } }}
           >
             <Image
               alt="stack of project snapshots"
@@ -97,11 +96,11 @@ export default function AboutMe() {
             />
           </Grid2>
 
-          <Grid2 
-          size={{ xs: 12, md: 6 }} 
-          order={{ xs: 1, md: 2 }} 
-          sx={{ 
-            textAlign: {xs: 'center', md: 'left'}, 
+          <Grid2
+            size={{ xs: 12, md: 6 }}
+            order={{ xs: 1, md: 2 }}
+            sx={{
+              textAlign: { xs: "center", md: "left" },
             }}
           >
             <Typography
@@ -146,8 +145,8 @@ export default function AboutMe() {
             <Stack
               direction="row"
               spacing={2}
-              sx={{ 
-                justifyContent: { xs: "center", md: "flex-start" }, 
+              sx={{
+                justifyContent: { xs: "center", md: "flex-start" },
                 my: 4,
               }}
             >
