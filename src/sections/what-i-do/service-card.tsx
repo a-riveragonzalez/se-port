@@ -29,7 +29,7 @@ export default function ServiceCard({
         p: 2,
         mt: 6,
         height: "calc(100% - 40px)", // This ensures all cards have the same height
-      }}
+      }} 
     >
       <Image
         src={icon}
