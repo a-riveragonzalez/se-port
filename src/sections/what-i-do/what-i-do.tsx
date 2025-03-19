@@ -1,33 +1,35 @@
 import * as React from "react";
-import Image from "next/image";
 
-import { Box, Container, Grid2, Typography } from "@mui/material";
+import { Container, Grid2, Typography } from "@mui/material";
 
-import fullStackDev from "@/assets/images/fullstackdev.png";
+import fullStackDevIcon from "@/assets/images/fullstackdev.png";
+import frontendDevIcon from "@/assets/images/frontenddev.png";
+import backendDevIcon from "@/assets/images/backenddev.png";
+import cloudDevIcon from "@/assets/images/clouddev.png";
 import ServiceCard from "./service-card";
 
 const services = [
   {
     id: 1,
-    icon: fullStackDev.src,
+    icon: fullStackDevIcon.src,
     title: "Full Stack Development",
     description: "Leveraging the power of TypeScript, JavaScript, and modern frameworks to build robust web applications."
   },
   {
     id: 2,
-    icon: fullStackDev.src,
+    icon: frontendDevIcon.src,
     title: "Front-End Excellence",
     description: "Creating dynamic, responsive user interfaces with React and Next.js."
   },
   {
     id: 3,
-    icon: fullStackDev.src,
+    icon: backendDevIcon.src,
     title: "Back-End & API Development",
     description: "Designing and implementing efficient RESTful and GraphQL APIs with Node.js."
   },
   {
     id: 4,
-    icon: fullStackDev.src,
+    icon: cloudDevIcon.src,
     title: "Cloud & Database Expertise",
     description: "Utilizing AWS services and PostgreSQL to develop scalable, data-driven solutions."
   }
@@ -67,7 +69,7 @@ export default function WhatIDo() {
         with Code
       </Typography>
 
-      <Grid2 container spacing={2} sx={{ mt: 2 }}>
+      <Grid2 container spacing={3} sx={{ mt: 2 }}>
         {services.map((service) => (
           <Grid2 size={{xs: 12, sm: 6, md: 3}} key={service.id}>
             <ServiceCard
