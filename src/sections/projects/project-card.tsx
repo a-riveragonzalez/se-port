@@ -2,7 +2,8 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { Box, Typography } from "@mui/material";
+import { Box, Card, CardActions, CardContent, CardHeader, CardMedia, IconButton, Typography } from "@mui/material";
+import Iconify from "@/components/iconify";
 
 // Define props interface for the component
 interface ServiceCardProps {
@@ -21,52 +22,42 @@ export default function ProjectCard({
   description,
   websiteLink,
   githubLink,
-  iconWidth = 80,
-  iconHeight = 80,
+  iconWidth = 274,
+  iconHeight = 202,
 }: ServiceCardProps) {
   return (
     <>
-      <Box
-        sx={{
-          position: "relative",
-          backgroundColor: "primary.main",
-          borderRadius: 3,
-          p: 2,
-          mt: 6,
-        }}
+      <Card
+        sx={{ maxWidth: 345, mt: 6, }}
       >
-        <Image
-          src={icon}
-          width={iconWidth}
-          height={iconHeight}
-          alt={`${title} icon`}
-          style={{
-            position: "absolute",
-            top: "-40px",
-            left: "50%",
-            transform: "translateX(-50%)",
-          }}
+        <CardHeader
+          title={title}
+          // subheader="September 14, 2016"
+          sx={{ borderRadius: '20px 20px 0 0 '}}
         />
-        <Typography
-          variant="body1"
-          sx={{
-            color: "text.primary",
-            fontWeight: 800,
-            mt: 3,
-          }}
-        >
-          {title}
-        </Typography>
-      </Box>
+        <CardMedia
+          component="img"
+          height="194"
+          image={icon}
+          alt={title}
+        />
+        <CardActions disableSpacing>
+          <IconButton aria-label="add to favorites">
+            <Iconify width={30} icon="fa6-brands:github" />
+          </IconButton>
+        </CardActions>
+      </Card>
 
       <Typography
-          variant="body2"
-          sx={{
-            color: "text.primary",
-          }}
-        >
-          {description}
-        </Typography>
+        variant="body2"
+        sx={{
+          color: "text.primary",
+          textAlign: 'left',
+          mt: 1
+        }}
+      >
+        {description}
+      </Typography>
     </>
   );
 }

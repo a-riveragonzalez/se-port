@@ -3,35 +3,37 @@ import Typography from '@mui/material/Typography';
 import { Container, Grid2 } from '@mui/material';
 import ProjectCard from './project-card';
 
+import tattooImage1 from '../../assets/images/projects/tattoo_artist_1.png'
+
 const projects = [
   {
     id: 1,
-    icon: '',
-    title: "Full Stack Development",
+    icon: tattooImage1.src,
+    title: "Tattoo Shop",
     websiteLink: '', 
     githubLink: '',
     description: "Leveraging the power of TypeScript, JavaScript, and modern frameworks to build robust web applications."
   },
   {
     id: 2,
-    icon: '',
-    title: "Front-End Excellence",
+    icon: tattooImage1.src,
+    title: "Tattoo Shop",
     websiteLink: '', 
     githubLink: '',
     description: "Creating dynamic, responsive user interfaces with React and Next.js."
   },
   {
     id: 3,
-    icon: '',
-    title: "Back-End & API Development",
+    icon: tattooImage1.src,
+    title: "Tattoo Shop",
     websiteLink: '', 
     githubLink: '',
     description: "Designing and implementing efficient RESTful and GraphQL APIs with Node.js."
   },
   {
     id: 4,
-    icon: '',
-    title: "Cloud & Database Expertise",
+    icon: tattooImage1.src,
+    title: "Tattoo Shop",
     websiteLink: '', 
     githubLink: '',
     description: "Utilizing AWS services and PostgreSQL to develop scalable, data-driven solutions."
