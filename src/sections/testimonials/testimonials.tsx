@@ -4,6 +4,7 @@ import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import { Box, Container, Theme, useMediaQuery, useTheme } from '@mui/material';
 import AccentLine from '@/components/accent-line';
+import TestimonialCarousel from './testimonial-carousel';
 
 export default function Testimonials() {
   const theme = useTheme();
@@ -70,8 +71,8 @@ export default function Testimonials() {
             color: "secondary.main",
           }}
         >
-          <AccentLine /> 
-          Testimonials 
+          <AccentLine />
+          Testimonials
           <AccentLine />
         </Typography>
         <Typography
@@ -86,7 +87,10 @@ export default function Testimonials() {
           <br />
           Say About Me:
         </Typography>
+
       </Container>
+    
+          <TestimonialCarousel />
     </Box>
   );
 }
