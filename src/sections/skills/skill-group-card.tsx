@@ -1,0 +1,90 @@
+"use client";
+
+import * as React from "react";
+import Image from "next/image";
+import { Box, Stack, Typography, useTheme } from "@mui/material";
+
+interface SkillGroupCardProps {
+    id: number;
+    icon: string;
+    title: string;
+    description: string;
+    iconWidth?: number;
+    iconHeight?: number;
+}
+
+export default function SkillGroupCard({
+    id,
+    icon,
+    title,
+    description,
+    iconWidth = 50,
+    iconHeight = 50,
+}: SkillGroupCardProps) {
+    const theme = useTheme();
+    const isLightMode = theme.palette.mode === "light";
+
+    return (
+        <Box
+            sx={{
+                position: "relative",
+                backgroundColor: isLightMode ? "white" : "black",
+                border: `2px solid ${theme.palette.primary.main}`,
+                borderRadius: 3,
+                p: 2,
+                boxShadow: `
+                    0 0 5px 0 ${theme.palette.primary.main},
+                    0 4.82px 4.85px 0 rgba(0, 0, 0, 0.25)
+                `,
+            }}
+        >
+            <Stack direction="row">
+                <Image
+                    src={icon}
+                    width={iconWidth}
+                    height={iconHeight}
+                    alt={`${title} icon`}
+                    style={{
+                        // position: "absolute",
+                        // top: "-40px",
+                        // left: "50%",
+                        // transform: "translateX(-50%)",
+                    }}
+                />
+                <Typography
+                    sx={{
+                        fontWeight: 800,
+                        fontSize: '1.5rem',
+                        color: theme.palette.text.primary,
+                        marginLeft: 'auto',
+                        marginTop: 'auto',
+                    }}
+                >
+                    0{id}
+                </Typography>
+            </Stack>
+
+            <Typography
+                variant="body1"
+                sx={{
+                    color: "text.primary",
+                    fontWeight: 800,
+                    // mt: 1,
+                    textAlign: 'center'
+                }}
+            >
+                {title}
+            </Typography>
+            <Typography
+                variant="body2"
+                sx={{
+                    color: "text.primary",
+                    textAlign: 'center',
+                    mt: 1.5,
+                }}
+            >
+                {description}
+            </Typography>
+        </Box>
+    );
+}

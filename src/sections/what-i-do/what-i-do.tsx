@@ -1,12 +1,13 @@
 import * as React from "react";
 
-import { Container, Grid2, Typography } from "@mui/material";
+import { Box, Container, Grid2, Typography } from "@mui/material";
 
 import fullStackDevIcon from "@/assets/images/fullstackdev.png";
 import frontendDevIcon from "@/assets/images/frontenddev.png";
 import backendDevIcon from "@/assets/images/backenddev.png";
 import cloudDevIcon from "@/assets/images/clouddev.png";
 import ServiceCard from "./service-card";
+import AccentLine from "@/components/accent-line";
 
 const services = [
   {
@@ -52,9 +53,15 @@ export default function WhatIDo() {
         component="h2"
         sx={{
           color: "secondary.main",
+          // display: "flex",
+          // alignItems: "center",
+          // justifyContent: "center", // This centers the content horizontally
+          // gap: 1,
         }}
       >
-        --- What I Do ---
+        <AccentLine /> 
+        What I Do
+        <AccentLine />
       </Typography>
       <Typography
         variant="h4"
@@ -71,7 +78,7 @@ export default function WhatIDo() {
 
       <Grid2 container spacing={3} sx={{ mt: 2 }}>
         {services.map((service) => (
-          <Grid2 size={{xs: 12, sm: 6, md: 3}} key={service.id}>
+          <Grid2 size={{ xs: 12, sm: 6, md: 3 }} key={service.id}>
             <ServiceCard
               icon={service.icon}
               title={service.title}

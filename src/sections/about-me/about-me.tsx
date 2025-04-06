@@ -17,6 +17,7 @@ import {
 
 import techImageDesktop from "@/assets/images/desktop/about-me-tech-d.png";
 import techImageMobile from "@/assets/images/mobile/about-me-tech-m.png";
+import AccentLine from "@/components/accent-line";
 
 export default function AboutMe() {
   const theme = useTheme();
@@ -104,72 +105,74 @@ export default function AboutMe() {
             }}
           >
             <Typography
-              variant="h6"
-              component="h2"
-              sx={{
-                color: "secondary.main",
-              }}
-            >
-              --- About Me ---
-            </Typography>
-            <Typography
-              variant="h4"
-              component="h3"
-              sx={{
-                color: "text.primary",
-                fontWeight: 800,
-              }}
-            >
-              Behind the Code:
-              <br />
-              My Journey in Tech
-            </Typography>
-            <Typography
-              variant="body1"
-              sx={{
-                color: "text.secondary",
-                mt: 2,
-              }}
-            >
-              I'm a Full Stack Developer with a Bachelor's Degree in Psychology
-              from Antioch University. I recently earned a certificate in Full
-              Stack Development at UCLA Extension, acquiring skills in
-              JavaScript, CSS, React.js, and responsive web design. I am
-              passionate about creating efficient applications with an
-              intuitive, user friendly interface. I have been recognized as
-              proactive, collaborative, and a persistent problem-solver. I am
-              also an excellent communicator with experience in effective client
-              relationship-building skills.
-            </Typography>
+            variant="h6"
+            component="h2"
+            sx={{
+              color: "secondary.main",
+            }}
+          >
+            <AccentLine />
+            About Me
+            <AccentLine />
+          </Typography>
+          <Typography
+            variant="h4"
+            component="h3"
+            sx={{
+              color: "text.primary",
+              fontWeight: 800,
+            }}
+          >
+            Behind the Code:
+            <br />
+            My Journey in Tech
+          </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              color: "text.secondary",
+              mt: 2,
+            }}
+          >
+            I'm a Full Stack Developer with a Bachelor's Degree in Psychology
+            from Antioch University. I recently earned a certificate in Full
+            Stack Development at UCLA Extension, acquiring skills in
+            JavaScript, CSS, React.js, and responsive web design. I am
+            passionate about creating efficient applications with an
+            intuitive, user friendly interface. I have been recognized as
+            proactive, collaborative, and a persistent problem-solver. I am
+            also an excellent communicator with experience in effective client
+            relationship-building skills.
+          </Typography>
 
-            <Stack
-              direction="row"
-              spacing={2}
-              sx={{
-                justifyContent: { xs: "center", md: "flex-start" },
-                my: 4,
-              }}
+          <Stack
+            direction="row"
+            spacing={2}
+            sx={{
+              justifyContent: { xs: "center", md: "flex-start" },
+              my: 4,
+            }}
+          >
+            <Button
+              variant="contained"
+              color="primary"
+              href="#contained-buttons"
+              sx={{ borderRadius: 10 }}
             >
-              <Button
-                variant="contained"
-                color="primary"
-                href="#contained-buttons"
-                sx={{ borderRadius: 10 }}
-              >
-                Get In Touch
-              </Button>
-              <Button
-                variant="outlined"
-                color="primary"
-                href="#contained-buttons"
-                sx={{ borderRadius: 10 }}
-              >
-                Download CV
-              </Button>
-            </Stack>
-          </Grid2>
+              View My Work
+            </Button>
+            <Button
+              variant="outlined"
+              color="primary"
+              href="#contained-buttons"
+              sx={{ borderRadius: 10 }}
+            >
+              Contact Me
+            </Button>
+          </Stack>
         </Grid2>
-      </Container>
-    </Box>
+      </Grid2>
+    </Container>
+    </Box >
   );
 }

@@ -1,5 +1,4 @@
 import * as React from "react";
-import Container from "@mui/material/Container";
 import Hero from "@/sections/hero";
 import AboutMe from "@/sections/about-me";
 import WhatIDo from "@/sections/what-i-do";
