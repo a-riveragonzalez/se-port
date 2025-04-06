@@ -55,8 +55,8 @@ export default function Skills() {
           color: "secondary.main",
         }}
       >
-        <AccentLine /> 
-        My Skills 
+        <AccentLine />
+        My Skills
         <AccentLine />
       </Typography>
       <Typography
@@ -77,7 +77,13 @@ export default function Skills() {
         <Grid2
           size={{ xs: 12, md: 6 }}
           order={{ xs: 2, md: 1 }}
-          sx={{ pr: { xs: 0, md: 10, lg: 15 } }}
+          sx={{
+            pr: { xs: 0, md: 10, lg: 15 },
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
         >
           <Image
             alt="portrait"
@@ -103,22 +109,67 @@ export default function Skills() {
         <Grid2
           size={{ xs: 12, md: 6 }}
           order={{ xs: 1, md: 2 }}
-          sx={{
-            textAlign: { xs: "center", md: "left" },
-          }}
           container
+          spacing={1} // This creates the horizontal spacing between columns (4px)
         >
-          {skillGroups.map((skillGroup, index) => (
-            <Grid2 size={{ xs: 6 }} key={skillGroup.id}>
+          {/* Left Column - Items 1 & 3 */}
+          <Grid2
+            size={6}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+              mt: 1, // This offsets the first column by 8px
+            }}
+          >
+            {/* Item 1 */}
+            <Grid2 sx={{ mb: 1 }}> {/* 8px spacing between 1 and 3 */}
               <SkillGroupCard
-                id={index + 1}
-                icon={skillGroup.icon}
-                title={skillGroup.title}
-                description={skillGroup.description}
-                
+                id={1}
+                icon={skillGroups[0].icon}
+                title={skillGroups[0].title}
+                description={skillGroups[0].description}
               />
             </Grid2>
-          ))}
+
+            {/* Item 3 */}
+            <Grid2>
+              <SkillGroupCard
+                id={3}
+                icon={skillGroups[2].icon}
+                title={skillGroups[2].title}
+                description={skillGroups[2].description}
+              />
+            </Grid2>
+          </Grid2>
+
+          {/* Right Column - Items 2 & 4 */}
+          <Grid2
+            size={6}
+            sx={{
+              display: 'flex',
+              flexDirection: 'column',
+            }}
+          >
+            {/* Item 2 */}
+            <Grid2 sx={{ mb: 1 }}> {/* 8px spacing between 2 and 4 */}
+              <SkillGroupCard
+                id={2}
+                icon={skillGroups[1].icon}
+                title={skillGroups[1].title}
+                description={skillGroups[1].description}
+              />
+            </Grid2>
+
+            {/* Item 4 */}
+            <Grid2>
+              <SkillGroupCard
+                id={4}
+                icon={skillGroups[3].icon}
+                title={skillGroups[3].title}
+                description={skillGroups[3].description}
+              />
+            </Grid2>
+          </Grid2>
         </Grid2>
       </Grid2>
     </Container>
