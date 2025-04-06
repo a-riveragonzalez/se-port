@@ -18,8 +18,8 @@ export default function SkillGroupCard({
     icon,
     title,
     description,
-    iconWidth = 50,
-    iconHeight = 50,
+    iconWidth = 40,
+    iconHeight = 40,
 }: SkillGroupCardProps) {
     const theme = useTheme();
     const isLightMode = theme.palette.mode === "light";
@@ -47,8 +47,8 @@ export default function SkillGroupCard({
                 />
                 <Typography
                     sx={{
-                        fontWeight: 800,
-                        fontSize: '1.5rem',
+                        fontWeight: 400,
+                        fontSize: '1.55rem',
                         color: theme.palette.text.primary,
                         marginLeft: 'auto',
                         marginTop: 'auto',

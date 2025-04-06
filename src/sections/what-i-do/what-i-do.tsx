@@ -2,10 +2,10 @@ import * as React from "react";
 
 import { Box, Container, Grid2, Typography } from "@mui/material";
 
-import fullStackDevIcon from "@/assets/images/fullstackdev.png";
-import frontendDevIcon from "@/assets/images/frontenddev.png";
-import backendDevIcon from "@/assets/images/backenddev.png";
-import cloudDevIcon from "@/assets/images/clouddev.png";
+import fullStackDevIcon from "@/assets/icons/fullstackdev.png";
+import frontendDevIcon from "@/assets/icons/frontenddev.png";
+import backendDevIcon from "@/assets/icons/backenddev.png";
+import cloudDevIcon from "@/assets/icons/clouddev.png";
 import ServiceCard from "./service-card";
 import AccentLine from "@/components/accent-line";
 

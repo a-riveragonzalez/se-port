@@ -2,37 +2,41 @@
 
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
-import { Button, Container, Grid2, useTheme } from '@mui/material';
+import { Button, Container, Grid2 } from '@mui/material';
 import Image from "next/image";
 import portraitImage from "@/assets/images/portrait_circle.png";
-
-import fullStackDevIcon from "@/assets/images/fullstackdev.png";
 import SkillGroupCard from './skill-group-card';
 import AccentLine from '@/components/accent-line';
 import { DiagonalWordStripe } from './diagonal-word-stripe';
 
+import languagesIcon from "@/assets/icons/languages.png";
+import frameworksIcon from "@/assets/icons/frameworks.png";
+import toolsIcon from "@/assets/icons/tools.png";
+import databasesIcon from "@/assets/icons/databases.png";
+
+
 const skillGroups = [
   {
     id: 1,
-    icon: fullStackDevIcon.src,
+    icon: languagesIcon.src,
     title: "Languages",
     description: "TypeScript | JavaScript ES6+ | HTML5 | CSS3"
   },
   {
     id: 2,
-    icon: fullStackDevIcon.src,
+    icon: frameworksIcon.src,
     title: "Frameworks & Libraries",
     description: "React.js | Next.js | Node.js | Express.js | Tailwind CSS | Apollo Server | Redux | JQuery"
   },
   {
     id: 3,
-    icon: fullStackDevIcon.src,
+    icon: toolsIcon.src,
     title: "Tools & Services",
     description: "AWS (EC2, S3, RDS, Lambda) | Git | GitHub | Sequelize | Figma | Jira | Zendesk"
   },
   {
     id: 4,
-    icon: fullStackDevIcon.src,
+    icon: databasesIcon.src,
     title: "Databases",
     description: "SQL | MySQL | PostgreSQL | MongoDB | GraphQL | NoSQL"
   },
