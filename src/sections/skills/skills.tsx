@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from 'react';
 import Typography from '@mui/material/Typography';
 import { Button, Container, Grid2, useTheme } from '@mui/material';
@@ -7,6 +9,7 @@ import portraitImage from "@/assets/images/portrait_circle.png";
 import fullStackDevIcon from "@/assets/images/fullstackdev.png";
 import SkillGroupCard from './skill-group-card';
 import AccentLine from '@/components/accent-line';
+import { DiagonalWordStripe } from './diagonal-word-stripe';
 
 const skillGroups = [
   {
@@ -38,140 +41,145 @@ const skillGroups = [
 export default function Skills() {
 
   return (
-    <Container
-      sx={{
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-        py: { xs: 5, md: 10 },
-        textAlign: "center",
-      }}
-    >
-      <Typography
-        variant="h6"
-        component="h2"
+    <>
+      <Container
         sx={{
-          color: "secondary.main",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+          py: { xs: 5, md: 10 },
+          textAlign: "center",
         }}
       >
-        <AccentLine />
-        My Skills
-        <AccentLine />
-      </Typography>
-      <Typography
-        variant="h4"
-        component="h3"
-        sx={{
-          color: "text.primary",
-          fontWeight: 800,
-          mb: 2,
-        }}
-      >
-        Tools of the Trade:
-        <br />
-        My Skillset
-      </Typography>
-
-      <Grid2 container spacing={2} sx={{ width: "100%" }}>
-        <Grid2
-          size={{ xs: 12, md: 6 }}
-          order={{ xs: 2, md: 1 }}
+        <Typography
+          variant="h6"
+          component="h2"
           sx={{
-            pr: { xs: 0, md: 10, lg: 15 },
-            display: 'flex',
-            flexDirection: 'column',
-            justifyContent: 'center',
-            alignItems: 'center'
+            color: "secondary.main",
           }}
         >
-          <Image
-            alt="portrait"
-            src={portraitImage.src}
-            style={{
-              // width: "100%",
-              // height: "auto",
-              objectFit: "contain",
-            }}
-            width={300}
-            height={300}
-          />
-          <Button
-            variant="contained"
-            color="primary"
-            href="#contained-buttons"
-            sx={{ borderRadius: 10, mt: 1 }}
-          >
-            Download My Resume
-          </Button>
-        </Grid2>
-
-        <Grid2
-          size={{ xs: 12, md: 6 }}
-          order={{ xs: 1, md: 2 }}
-          container
-          spacing={1} // This creates the horizontal spacing between columns (4px)
+          <AccentLine />
+          My Skills
+          <AccentLine />
+        </Typography>
+        <Typography
+          variant="h4"
+          component="h3"
+          sx={{
+            color: "text.primary",
+            fontWeight: 800,
+            mb: 2,
+          }}
         >
-          {/* Left Column - Items 1 & 3 */}
+          Tools of the Trade:
+          <br />
+          My Skillset
+        </Typography>
+
+        <Grid2 container spacing={2} sx={{ width: "100%" }}>
           <Grid2
-            size={6}
+            size={{ xs: 12, md: 6 }}
+            order={{ xs: 2, md: 1 }}
             sx={{
+              pr: { xs: 0, md: 10, lg: 15 },
               display: 'flex',
               flexDirection: 'column',
-              mt: 1, // This offsets the first column by 8px
+              justifyContent: 'center',
+              alignItems: 'center'
             }}
           >
-            {/* Item 1 */}
-            <Grid2 sx={{ mb: 1 }}> {/* 8px spacing between 1 and 3 */}
-              <SkillGroupCard
-                id={1}
-                icon={skillGroups[0].icon}
-                title={skillGroups[0].title}
-                description={skillGroups[0].description}
-              />
-            </Grid2>
-
-            {/* Item 3 */}
-            <Grid2>
-              <SkillGroupCard
-                id={3}
-                icon={skillGroups[2].icon}
-                title={skillGroups[2].title}
-                description={skillGroups[2].description}
-              />
-            </Grid2>
+            <Image
+              alt="portrait"
+              src={portraitImage.src}
+              style={{
+                // width: "100%",
+                // height: "auto",
+                objectFit: "contain",
+              }}
+              width={300}
+              height={300}
+            />
+            <Button
+              variant="contained"
+              color="primary"
+              href="#contained-buttons"
+              sx={{ borderRadius: 10, mt: 1 }}
+            >
+              Download My Resume
+            </Button>
           </Grid2>
 
-          {/* Right Column - Items 2 & 4 */}
           <Grid2
-            size={6}
-            sx={{
-              display: 'flex',
-              flexDirection: 'column',
-            }}
+            size={{ xs: 12, md: 6 }}
+            order={{ xs: 1, md: 2 }}
+            container
+            spacing={1} // This creates the horizontal spacing between columns (4px)
           >
-            {/* Item 2 */}
-            <Grid2 sx={{ mb: 1 }}> {/* 8px spacing between 2 and 4 */}
-              <SkillGroupCard
-                id={2}
-                icon={skillGroups[1].icon}
-                title={skillGroups[1].title}
-                description={skillGroups[1].description}
-              />
+            {/* Left Column - Items 1 & 3 */}
+            <Grid2
+              size={6}
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+                mt: 1, // This offsets the first column by 8px
+              }}
+            >
+              {/* Item 1 */}
+              <Grid2 sx={{ mb: 1 }}> {/* 8px spacing between 1 and 3 */}
+                <SkillGroupCard
+                  id={1}
+                  icon={skillGroups[0].icon}
+                  title={skillGroups[0].title}
+                  description={skillGroups[0].description}
+                />
+              </Grid2>
+
+              {/* Item 3 */}
+              <Grid2>
+                <SkillGroupCard
+                  id={3}
+                  icon={skillGroups[2].icon}
+                  title={skillGroups[2].title}
+                  description={skillGroups[2].description}
+                />
+              </Grid2>
             </Grid2>
 
-            {/* Item 4 */}
-            <Grid2>
-              <SkillGroupCard
-                id={4}
-                icon={skillGroups[3].icon}
-                title={skillGroups[3].title}
-                description={skillGroups[3].description}
-              />
+            {/* Right Column - Items 2 & 4 */}
+            <Grid2
+              size={6}
+              sx={{
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              {/* Item 2 */}
+              <Grid2 sx={{ mb: 1 }}> {/* 8px spacing between 2 and 4 */}
+                <SkillGroupCard
+                  id={2}
+                  icon={skillGroups[1].icon}
+                  title={skillGroups[1].title}
+                  description={skillGroups[1].description}
+                />
+              </Grid2>
+
+              {/* Item 4 */}
+              <Grid2>
+                <SkillGroupCard
+                  id={4}
+                  icon={skillGroups[3].icon}
+                  title={skillGroups[3].title}
+                  description={skillGroups[3].description}
+                />
+              </Grid2>
             </Grid2>
           </Grid2>
         </Grid2>
-      </Grid2>
-    </Container>
+      </Container>
+
+      <DiagonalWordStripe />
+      {/* enter line break div here */}
+    </>
   );
 }

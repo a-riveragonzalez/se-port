@@ -44,12 +44,6 @@ export default function SkillGroupCard({
                     width={iconWidth}
                     height={iconHeight}
                     alt={`${title} icon`}
-                    style={{
-                        // position: "absolute",
-                        // top: "-40px",
-                        // left: "50%",
-                        // transform: "translateX(-50%)",
-                    }}
                 />
                 <Typography
                     sx={{
