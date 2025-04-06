@@ -15,31 +15,31 @@ const projects = [
     title: "Tattoo Shop",
     websiteLink: '',
     githubLink: '',
-    description: "Leveraging the power of TypeScript, JavaScript, and modern frameworks to build robust web applications."
+    description: "A mobile responsive website that showcases the artistry and services of a tattoo studio using Next.js and Tailwind. The form uses NodeMailer to send emails directly to the artist."
   },
   {
     id: 2,
     icon: tattooImage1.src,
-    title: "Tattoo Shop",
+    title: "I Choose You",
     websiteLink: '',
     githubLink: '',
-    description: "Creating dynamic, responsive user interfaces with React and Next.js."
+    description: "A responsive MERN dating web application that allows users to create Pokemon-themed profiles, take a quiz to determine their Pokemon, and match with other users to chat."
   },
   {
     id: 3,
     icon: tattooImage1.src,
-    title: "Tattoo Shop",
+    title: "Impulse The Game",
     websiteLink: '',
     githubLink: '',
-    description: "Designing and implementing efficient RESTful and GraphQL APIs with Node.js."
+    description: "A full stack board game where your character advances and is compelled to buy an Item card or choose a Life Event Card that will impact your total Money and Mood Levels."
   },
   {
     id: 4,
     icon: tattooImage1.src,
-    title: "Tattoo Shop",
+    title: "Redux Store",
     websiteLink: '',
     githubLink: '',
-    description: "Utilizing AWS services and PostgreSQL to develop scalable, data-driven solutions."
+    description: "A full stack responsive MERN e-commerce web application that uses Redux to allow users to log in, browse products, add products to a cart, and checkout with stripe."
   }
 ];
 
