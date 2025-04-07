@@ -80,13 +80,26 @@ const TestimonialCarousel: React.FC = () => {
   };
 
   // Auto-rotate testimonials every 5 seconds
-  //   useEffect(() => {
-  //     const interval = setInterval(() => {
-  //       handleNext();
-  //     }, 5000);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      handleNext();
+    }, 8000);
 
-  //     return () => clearInterval(interval);
-  //   }, []);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft") {
+        handlePrev();
+      } else if (e.key === "ArrowRight") {
+        handleNext();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   // Calculate indices for visible testimonials
   const prevIndex =
@@ -183,7 +196,7 @@ const TestimonialCarousel: React.FC = () => {
         </IconButton>
 
         {/* Dots for indicating position */}
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
+        {/* <Box sx={{ display: "flex", alignItems: "center", gap: 1 }}>
           {testimonials.map((_, index) => (
             <Box
               key={index}
@@ -196,6 +209,23 @@ const TestimonialCarousel: React.FC = () => {
                   index === activeIndex ? "secondary.main" : "grey.400",
                 cursor: "pointer",
                 transition: "all 0.2s ease",
+              }}
+            />
+          ))}
+        </Box> */}
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1, height: 16, mt: 1.5 }}>
+          {testimonials.map((_, index) => (
+            <Box
+              key={index}
+              onClick={() => setActiveIndex(index)}
+              sx={{
+                height: 8,
+                width: index === activeIndex ? 32 : 8, // 4x wider when active
+                borderRadius: 4,
+                backgroundColor:
+                  index === activeIndex ? "secondary.main" : "grey.400",
+                cursor: "pointer",
+                transition: "width 0.3s ease, background-color 0.3s ease",
               }}
             />
           ))}
@@ -256,7 +286,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                 color: "white",
               }}
             />
-            <Box sx={{color: !isActive ? inActiveCardColor : ''}}>
+            <Box sx={{ color: !isActive ? inActiveCardColor : "" }}>
               <Typography sx={{ fontWeight: "bold", fontSize: "0.9rem" }}>
                 {testimonial.name}
               </Typography>
@@ -274,7 +304,10 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
                 sx={{ color: "secondary.main" }}
               />
             ))}
-            <Typography variant="body1" sx={{ ml: 0.5, color: !isActive ? inActiveCardColor : '' }}>
+            <Typography
+              variant="body1"
+              sx={{ ml: 0.5, color: !isActive ? inActiveCardColor : "" }}
+            >
               5.0
             </Typography>
           </Stack>
@@ -282,7 +315,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
 
         {/* Quote icon */}
         {isActive && (
-          <Box sx={{ display: "flex", justifyContent: "end", }}>
+          <Box sx={{ display: "flex", justifyContent: "end" }}>
             <Iconify
               icon="tabler:quote-filled"
               width={100}
@@ -298,7 +331,7 @@ const TestimonialCard: React.FC<TestimonialCardProps> = ({
         sx={{
           flex: 1,
           mb: 2,
-          color: !isActive ? inActiveCardColor : 'black',
+          color: !isActive ? inActiveCardColor : "black",
         }}
       >
         {testimonial.text}
