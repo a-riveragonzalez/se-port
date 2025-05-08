@@ -3,6 +3,7 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
 import { Box, Button, Grid2, Stack, useTheme } from "@mui/material";
+import Iconify from "@/components/iconify";
 
 export default function HeroContent() {
   const theme = useTheme();
@@ -56,11 +57,15 @@ export default function HeroContent() {
         technologies.
       </Typography>
 
-      <Stack direction="row" spacing={2} sx={{justifyContent: {xs: "center", md: "flex-start" }}}>
+      <Stack
+        direction="row"
+        spacing={2}
+        sx={{ justifyContent: { xs: "center", md: "flex-start" } }}
+      >
         <Button
           variant="contained"
           color="primary"
-          href="#contained-buttons"
+          href="#contact"
           sx={{ borderRadius: 10 }}
         >
           Get In Touch
@@ -68,16 +73,28 @@ export default function HeroContent() {
         <Button
           variant="outlined"
           color="primary"
-          href="#contained-buttons"
+          href="https://drive.google.com/uc?export=download&id=1DyYkTa80ywZfcdoWlMyn_EQGfK682-L4"
+          target="_blank"
+          rel="noopener noreferrer"
           sx={{ borderRadius: 10 }}
+          endIcon={<Iconify icon="eva:download-outline" />}
         >
-          Download CV
+          Download Resume
         </Button>
       </Stack>
 
-      <Stack direction="row" spacing={2} sx={{ mt: 4 }} justifyContent="space-between" >
+      <Stack
+        direction="row"
+        spacing={2}
+        sx={{ mt: 4 }}
+        justifyContent="space-between"
+      >
         <Box>
-          <Typography variant="h6" align="center" sx={{ fontWeight: "bold", color: "primary.main" }}>
+          <Typography
+            variant="h6"
+            align="center"
+            sx={{ fontWeight: "bold", color: "primary.main" }}
+          >
             100+
           </Typography>
           <Typography variant="caption" sx={{ color: "text.primary" }}>
@@ -85,7 +102,11 @@ export default function HeroContent() {
           </Typography>
         </Box>
         <Box>
-          <Typography variant="h6" align="center" sx={{ fontWeight: "bold", color: "primary.main" }}>
+          <Typography
+            variant="h6"
+            align="center"
+            sx={{ fontWeight: "bold", color: "primary.main" }}
+          >
             100+
           </Typography>
           <Typography variant="caption" sx={{ color: "text.primary" }}>
@@ -93,7 +114,11 @@ export default function HeroContent() {
           </Typography>
         </Box>
         <Box>
-          <Typography variant="h6" align="center" sx={{ fontWeight: "bold", color: "primary.main" }}>
+          <Typography
+            variant="h6"
+            align="center"
+            sx={{ fontWeight: "bold", color: "primary.main" }}
+          >
             5+
           </Typography>
           <Typography variant="caption" sx={{ color: "text.primary" }}>

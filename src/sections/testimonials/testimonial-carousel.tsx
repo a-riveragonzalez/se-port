@@ -31,7 +31,7 @@ const testimonials: Testimonial[] = [
     title: "CTO",
     company: "Tech Solutions",
     text: "Arely is an exceptional developer who consistently delivers high-quality code. Her attention to detail and problem-solving skills made our project a success.",
-    avatar: "/assets/avatars/avatar1.png",
+    avatar: undefined // "/assets/avatars/avatar1.png",
   },
   {
     id: 2,
@@ -39,7 +39,7 @@ const testimonials: Testimonial[] = [
     title: "Product Manager",
     company: "Digital Innovations",
     text: "Working with Arely was a pleasure. She understands requirements quickly and implements them with precision. Her technical skills combined with her communication made our collaboration seamless.",
-    avatar: "/assets/avatars/avatar2.png",
+    avatar: undefined // "/assets/avatars/avatar2.png",
   },
   {
     id: 3,
@@ -47,7 +47,7 @@ const testimonials: Testimonial[] = [
     title: "CEO",
     company: "StartUp Ventures",
     text: "Arely helped transform our vision into reality. Her full-stack expertise and dedication to quality were instrumental in launching our platform on time and under budget.",
-    avatar: "/assets/avatars/avatar3.png",
+    avatar: undefined // "/assets/avatars/avatar3.png",
   },
   {
     id: 4,
@@ -55,7 +55,7 @@ const testimonials: Testimonial[] = [
     title: "Lead Designer",
     company: "Creative Works",
     text: "I've worked with many developers, but Arely stands out for her ability to translate designs into pixel-perfect implementations while maintaining excellent code quality.",
-    avatar: "/assets/avatars/avatar4.png",
+    avatar: undefined // "/assets/avatars/avatar4.png",
   },
 ];
 

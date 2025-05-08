@@ -1,6 +1,6 @@
 import * as React from "react";
 import Typography from "@mui/material/Typography";
-import { Box, Grid2, Stack } from "@mui/material";
+import { Box, Grid2, IconButton, Stack } from "@mui/material";
 import Iconify from "@/components/iconify";
 import Image from "next/image";
 import argPortrait from "@/assets/images/portrait.png";
@@ -12,7 +12,7 @@ export default function HeroImage() {
       <Grid2
         size={5}
         sx={{
-        //   border: "1px solid red",
+          //   border: "1px solid red",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-evenly",
@@ -33,11 +33,18 @@ export default function HeroImage() {
           height={500}
         />
 
-        <Box sx={{ backgroundColor: "secondary.main", p: 1, borderRadius: 5, width: "100%" }}>
+        <Box
+          sx={{
+            backgroundColor: "secondary.main",
+            p: 1,
+            borderRadius: 5,
+            width: "100%",
+          }}
+        >
           <Typography
             variant="body1"
             align="center"
-            sx={{ fontWeight: "bolder", fontSize: '1.1rem' }}
+            sx={{ fontWeight: "bolder", fontSize: "1.1rem" }}
           >
             Languages I Work With
           </Typography>
@@ -62,7 +69,7 @@ export default function HeroImage() {
         direction="row"
         size={5}
         sx={{
-        //   border: "1px solid red",
+          //   border: "1px solid red",
           justifyContent: "center",
           alignItems: "center",
           width: "100%",
@@ -88,9 +95,33 @@ export default function HeroImage() {
           sx={{ mt: 1 }}
           justifyContent="space-between"
         >
-          <Iconify width={35} icon="fa6-brands:github" />
-          <Iconify width={35} icon="fa6-brands:linkedin" />
-          <Iconify width={38} icon="uiw:mail-o" />
+          {/* GitHub */}
+          <IconButton
+            href="https://github.com/a-riveragonzalez"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ color: "text.primary" }}
+          >
+            <Iconify width={35} icon="fa6-brands:github" />
+          </IconButton>
+
+          {/* LinkedIn */}
+          <IconButton 
+            href="https://www.linkedin.com/in/arelyriveragonzalez" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            sx={{ color: "text.primary" }}
+          >
+            <Iconify width={35} icon="fa6-brands:linkedin" />
+          </IconButton>
+          
+          {/* Contact section */}
+          <IconButton 
+            href="#contact"
+            sx={{ color: "text.primary" }}
+          >
+            <Iconify width={38} icon="uiw:mail-o" />
+          </IconButton>
         </Stack>
       </Grid2>
     </>

@@ -158,6 +158,7 @@ export default function ContactMe() {
 
   return (
     <Container
+      id="contact"
       sx={{
         display: "flex",
         flexDirection: "column",
