@@ -1,78 +1,77 @@
 "use client";
+import { useEffect, useRef, useState } from "react";
 
-import * as React from "react";
-import Typography from "@mui/material/Typography";
 import {
+  Typography,
   Box,
   Container,
-  Grid2,
-  IconButton,
   Theme,
   useMediaQuery,
   useTheme,
 } from "@mui/material";
+import AccentLine from "@/components/accent-line";
 import ProjectCard from "./project-card";
 
 import tattooImage1 from "../../assets/images/projects/tattoo_artist_1.png";
-import AccentLine from "@/components/accent-line";
-import { useEffect, useRef, useState } from "react";
-import Iconify from "@/components/iconify";
+import iChooseYouImage from "../../assets/images/projects/i_choose_you.png";
+import impulseImage from "../../assets/images/projects/impulse_the_game.png";
+import reduxStoreImage from "../../assets/images/projects/redux_store.png";
 
 const projects = [
   {
     id: 1,
     icon: tattooImage1.src,
     title: "Tattoo Shop",
-    websiteLink: "",
-    githubLink: "",
+    websiteLink: "https://tattoos.vercel.app/",
+    githubLink: "https://github.com/a-riveragonzalez/tattoos",
     description:
       "A mobile responsive website that showcases the artistry and services of a tattoo studio using Next.js and Tailwind. The form uses NodeMailer to send emails directly to the artist.",
   },
   {
     id: 2,
-    icon: tattooImage1.src,
+    icon: iChooseYouImage.src,
     title: "I Choose You",
     websiteLink: "",
-    githubLink: "",
+    githubLink: "https://github.com/a-riveragonzalez/i-choose-you",
     description:
       "A responsive MERN dating web application that allows users to create Pokemon-themed profiles, take a quiz to determine their Pokemon, and match with other users to chat.",
   },
   {
     id: 3,
-    icon: tattooImage1.src,
+    icon: impulseImage.src,
     title: "Impulse The Game",
     websiteLink: "",
-    githubLink: "",
+    githubLink: "https://github.com/LujanSolo/Impulse",
     description:
       "A full stack board game where your character advances and is compelled to buy an Item card or choose a Life Event Card that will impact your total Money and Mood Levels.",
   },
   {
     id: 4,
-    icon: tattooImage1.src,
+    icon: reduxStoreImage.src,
     title: "Redux Store",
     websiteLink: "",
-    githubLink: "",
+    githubLink: "https://github.com/a-riveragonzalez/redux-store",
     description:
       "A full stack responsive MERN e-commerce web application that uses Redux to allow users to log in, browse products, add products to a cart, and checkout with stripe.",
   },
-  {
-    id: 5,
-    icon: tattooImage1.src,
-    title: "extra example 1",
-    websiteLink: "",
-    githubLink: "",
-    description:
-      "A full stack board game where your character advances and is compelled to buy an Item card or choose a Life Event Card that will impact your total Money and Mood Levels.",
-  },
-  {
-    id: 6,
-    icon: tattooImage1.src,
-    title: "extra example 2",
-    websiteLink: "",
-    githubLink: "",
-    description:
-      "A full stack responsive MERN e-commerce web application that uses Redux to allow users to log in, browse products, add products to a cart, and checkout with stripe.",
-  },
+  // {
+  //   id: 5,
+  //   icon: tattooImage1.src,
+  //   title: "extra example 1",
+  //   websiteLink: "",
+  //   githubLink: "",
+  //   description:
+  //     "A full stack board game where your character advances and is compelled to buy an Item card or choose a Life Event Card that will impact your total Money and Mood Levels.",
+  // },
+  // {
+  //   id: 6,
+  //   icon: tattooImage1.src,
+  //   title: "extra example 2",
+  //   websiteLink: "",
+  //   githubLink: "",
+  //   description:
+  //     "A full stack responsive MERN e-commerce web application that uses Redux to allow users to log in, browse products, add products to a cart, and checkout with stripe.",
+  // },
 ];
 
 export default function Projects() {

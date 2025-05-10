@@ -101,7 +101,7 @@ export default function ProjectCard({
             }}
           >
             {/* GitHub Button */}
-            {/* {githubLink && ( */}
+            {githubLink && (
               <IconButton
                 aria-label="View on GitHub"
                 sx={{
@@ -113,16 +113,16 @@ export default function ProjectCard({
                   width: 40,
                   height: 40,
                 }}
-                href= "/" //{githubLink}
+                href="/" //{githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Iconify icon="fa6-brands:github" width={22} />
               </IconButton>
-            {/* )} */}
+            )}
 
             {/* Website Button */}
-            {/* {websiteLink && ( */}
+            {websiteLink && (
               <IconButton
                 aria-label="Visit website"
                 sx={{
@@ -134,13 +134,13 @@ export default function ProjectCard({
                   width: 40,
                   height: 40,
                 }}
-                href= "/" //{websiteLink}
+                href="/" //{websiteLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <Iconify icon="mdi:web" width={22} />
               </IconButton>
-            {/* )} */}
+            )}
           </Box>
         </Box>
       </Box>

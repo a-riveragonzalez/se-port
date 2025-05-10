@@ -83,43 +83,17 @@ export default function ContactMe() {
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
+
     // Clear error when user starts typing
     if (errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
+
+    // Clear submit status when user starts typing in any field
+    if (submitStatus !== "idle") {
+      setSubmitStatus("idle");
+    }
   };
-
-  // Handle form submission
-  // const handleSubmit = async (e: React.FormEvent) => {
-  //   e.preventDefault();
-
-  //   if (!validateForm()) {
-  //     return;
-  //   }
-
-  //   setSubmitStatus("loading");
-
-  //   try {
-  //     const response = await fetch("/api/contact", {
-  //       method: "POST",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //       },
-  //       body: JSON.stringify(formData),
-  //     });
-
-  //     if (!response.ok) {
-  //       throw new Error("Failed to send message");
-  //     }
-
-  //     setSubmitStatus("success");
-  //     // Reset form
-  //     setFormData({ name: "", email: "", message: "" });
-  //   } catch (error) {
-  //     console.error("Error sending message:", error);
-  //     setSubmitStatus("error");
-  //   }
-  // };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
