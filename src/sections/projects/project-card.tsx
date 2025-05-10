@@ -113,7 +113,7 @@ export default function ProjectCard({
                   width: 40,
                   height: 40,
                 }}
-                href="/" //{githubLink}
+                href={githubLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
@@ -134,7 +134,7 @@ export default function ProjectCard({
                   width: 40,
                   height: 40,
                 }}
-                href="/" //{websiteLink}
+                href={websiteLink}
                 target="_blank"
                 rel="noopener noreferrer"
               >
