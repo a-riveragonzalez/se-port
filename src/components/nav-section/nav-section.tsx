@@ -35,6 +35,14 @@ interface NavTabsProps extends TabsProps {
   hidden?: boolean;
 }
 
+interface NavTabProps {
+  label: string;
+  href: string;
+  selected?: boolean;
+  onClick: (event: React.MouseEvent) => void;
+  sx?: any;
+}
+
 const NavTabs = styled(Tabs)(({ theme }) => ({
   position: "relative",
   overflow: "hidden",
@@ -50,10 +58,9 @@ const NavTabs = styled(Tabs)(({ theme }) => ({
   },
 }));
 
-
 const NavTab = styled(Tab)(({ theme }) => ({
   color: theme.palette.text.secondary,
-  textTransform: 'none',
+  textTransform: "none",
   "&.Mui-selected": {
     color: theme.palette.text.primary,
   },
@@ -61,12 +68,11 @@ const NavTab = styled(Tab)(({ theme }) => ({
 
 const drawerWidth = 240;
 const navItems = [
-  "Home",
-  "About Me",
-  "Projects",
-  "Resume",
-  // "Testimonials",
-  "Contact",
+  { name: "Home", id: "#home" },
+  { name: "About Me", id: "#about" },
+  { name: "Projects", id: "#projects" },
+  { name: "Resume", id: "#resume" },
+  { name: "Contact", id: "#contact" },
 ];
 
 function HideOnScroll(props: NavHideProps) {
@@ -85,6 +91,7 @@ export default function NavSection(props: NavHideProps) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [value, setValue] = useState(0);
+  const initials = '{ A.R.G }'
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -94,17 +101,46 @@ export default function NavSection(props: NavHideProps) {
     setMobileOpen((prevState) => !prevState);
   };
 
+  // Function to handle smooth scrolling
+  const scrollToSection = (sectionId: string, event?: React.MouseEvent) => {
+    // Prevent default if this is triggered by a click event
+    if (event) {
+      event.preventDefault();
+    }
+
+    const element = document.querySelector(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+    // Close drawer only if it's open (for mobile clicks)
+    if (mobileOpen) {
+      handleDrawerToggle();
+    }
+  };
+
   const drawer = (
-    <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
-      <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+    <Box sx={{ textAlign: "center" }}>
+      {/* onClick={handleDrawerToggle} */}
+      <Typography
+        variant="h5"
+        sx={{ my: 2, fontFamily: "Courier New, monospace", fontWeight: 800 }}
+      >
+        {initials}
       </Typography>
       <Divider />
       <List>
         {navItems.map((item) => (
-          <ListItem key={item} disablePadding>
-            <ListItemButton sx={{ textAlign: "center" }}>
-              <ListItemText primary={item} />
+          <ListItem key={item.name} disablePadding>
+            <ListItemButton
+              sx={{ textAlign: "center" }}
+              component="a"
+              href={item.id}
+              onClick={(e) => {
+                e.stopPropagation(); // Prevent event bubbling
+                scrollToSection(item.id, e);
+              }}
+            >
+              <ListItemText primary={item.name} />
             </ListItemButton>
           </ListItem>
         ))}
@@ -126,9 +162,7 @@ export default function NavSection(props: NavHideProps) {
             boxShadow: "none",
           }}
         >
-          <Toolbar
-            sx={{ justifyContent: { xs: "flex-start", sm: "center" } }}
-          >
+          <Toolbar sx={{ justifyContent: { xs: "flex-start", sm: "center" } }}>
             {/* mobile icon for nav */}
             <IconButton
               color="inherit"
@@ -154,11 +188,12 @@ export default function NavSection(props: NavHideProps) {
             >
               {navItems.map((item, index) => (
                 <NavTab
-                  key={item}
+                  key={item.name}
                   sx={{
                     mr: index === navItems.length - 1 ? 0 : 1,
                   }}
-                  label={item}
+                  label={item.name}
+                  onClick={(e) => scrollToSection(item.id, e)}
                 />
               ))}
             </NavTabs>
@@ -167,7 +202,7 @@ export default function NavSection(props: NavHideProps) {
           </Toolbar>
         </AppBar>
       </HideOnScroll>
-      
+
       {/* Move nav outside of HideOnScroll */}
       <nav>
         <Drawer

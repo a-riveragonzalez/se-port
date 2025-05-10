@@ -123,13 +123,13 @@ export default function ContactMe() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     if (!validateForm()) {
       return;
     }
-  
+
     setSubmitStatus("loading");
-  
+
     try {
       const response = await fetch("/api/contact", {
         method: "POST",
@@ -138,14 +138,14 @@ export default function ContactMe() {
         },
         body: JSON.stringify(formData),
       });
-  
+
       if (!response.ok) {
         // Get the error details from the response
         const errorData = await response.json();
-        console.error('API Error:', errorData);
+        console.error("API Error:", errorData);
         throw new Error(errorData.details || "Failed to send message");
       }
-  
+
       setSubmitStatus("success");
       // Reset form
       setFormData({ name: "", email: "", message: "" });
@@ -154,7 +154,6 @@ export default function ContactMe() {
       setSubmitStatus("error");
     }
   };
-  
 
   return (
     <Container
@@ -207,16 +206,16 @@ export default function ContactMe() {
           </Typography>
 
           <FormControl
-          component="form" 
+            component="form"
             fullWidth
             sx={{ mt: 3, pr: { xs: 0, md: 5 } }}
             variant="standard"
             onSubmit={handleSubmit}
           >
             <TextField
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
               id="outlined-basic"
               color="secondary"
               label="Name"
@@ -226,9 +225,9 @@ export default function ContactMe() {
               helperText={errors.name}
             />
             <TextField
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
               id="outlined-basic-email"
               color="secondary"
               label="Email"
@@ -238,9 +237,9 @@ export default function ContactMe() {
               helperText={errors.email}
             />
             <TextField
-             name="message"
-             value={formData.message}
-             onChange={handleChange}
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
               id="outlined-multiline-static"
               label="Message"
               multiline
@@ -251,24 +250,24 @@ export default function ContactMe() {
               helperText={errors.message}
             />
 
-{submitStatus === 'success' && (
+            {submitStatus === "success" && (
               <Alert severity="success" sx={{ mb: 2 }}>
                 Message sent successfully! I'll be in touch shortly.
               </Alert>
             )}
-            
-            {submitStatus === 'error' && (
+
+            {submitStatus === "error" && (
               <Alert severity="error" sx={{ mb: 2 }}>
                 Failed to send message. Please try again.
               </Alert>
             )}
-            
+
             <Button
-            type="submit"
+              type="submit"
               variant="contained"
               color="secondary"
               sx={{ color: "white" }}
-              disabled={submitStatus === 'loading'}
+              disabled={submitStatus === "loading"}
             >
               {/* Send Message
               <Iconify
@@ -277,12 +276,16 @@ export default function ContactMe() {
                 sx={{ color: "white", ml: 1 }}
               /> */}
               {/* fluent:send-32-regular */}
-              {submitStatus === 'loading' ? (
+              {submitStatus === "loading" ? (
                 <CircularProgress size={24} color="inherit" />
               ) : (
                 <>
                   Send Message
-                  <Iconify icon="fluent:send-32-regular" width={20} sx={{ color: 'white', ml: 1 }} />
+                  <Iconify
+                    icon="fluent:send-32-regular"
+                    width={20}
+                    sx={{ color: "white", ml: 1 }}
+                  />
                 </>
               )}
             </Button>
@@ -389,24 +392,46 @@ export default function ContactMe() {
               <Typography variant="h5" sx={{ mb: 1, color: "white" }}>
                 Want to set up a meeting?
               </Typography>
-              <Box
+              <Button
+                href="https://calendly.com/arelyrivera"
+                target="_blank"
+                rel="noopener noreferrer"
                 sx={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  backgroundColor: "white",
-                  width: "55px",
-                  height: "55px",
-                  borderRadius: "100%",
-                  boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                  p: 0,
+                  minWidth: "auto",
+                  background: "none",
+                  border: "none",
+                  boxShadow: "none",
+                  borderRadius: "50%",
+                  "&:hover": {
+                    background: "none",
+                  },
                 }}
               >
-                <Iconify
-                  icon="qlementine-icons:users-16"
-                  width={30}
-                  sx={{ color: "black", mx: "auto" }}
-                />
-              </Box>
+                <Box
+                  sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    backgroundColor: "white",
+                    width: "55px",
+                    height: "55px",
+                    borderRadius: "100%",
+                    boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.25)",
+                    transition: "transform 0.2s, box-shadow 0.2s",
+                    "&:hover": {
+                      transform: "translateY(-2px)",
+                      boxShadow: "0px 6px 8px rgba(0, 0, 0, 0.3)",
+                    },
+                  }}
+                >
+                  <Iconify
+                    icon="qlementine-icons:users-16"
+                    width={30}
+                    sx={{ color: "black", mx: "auto" }}
+                  />
+                </Box>
+              </Button>
             </Stack>
           </Box>
         </Grid2>

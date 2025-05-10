@@ -18,6 +18,7 @@ export default function Hero() {
 
   return (
     <Container
+      id="home"
       sx={{
         pt: { xs: 10, md: 20 },
         mb: { xs: 5, md: 10 },

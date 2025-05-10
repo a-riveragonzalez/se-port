@@ -68,6 +68,7 @@ export default function AboutMe() {
 
       {/* Content container */}
       <Container
+        id="about"
         sx={{
           position: "relative",
           zIndex: 2,
@@ -156,7 +157,7 @@ export default function AboutMe() {
             <Button
               variant="contained"
               color="primary"
-              href="#contained-buttons"
+              href="#projects"
               sx={{ borderRadius: 10 }}
             >
               View My Work
@@ -164,7 +165,7 @@ export default function AboutMe() {
             <Button
               variant="outlined"
               color="primary"
-              href="#contained-buttons"
+              href="#contact"
               sx={{ borderRadius: 10 }}
             >
               Contact Me

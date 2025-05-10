@@ -1,6 +1,6 @@
 import * as React from "react";
 import Iconify from "../iconify";
-import { Stack } from "@mui/material";
+import { IconButton, Stack } from "@mui/material";
 
 export default function Footer() {
   return (
@@ -14,8 +14,25 @@ export default function Footer() {
         alignItems: "center",
       }}
     >
-      <Iconify width={30} icon="fa6-brands:github" />
-      <Iconify width={30} icon="fa6-brands:linkedin" />
+      {/* GitHub */}
+      <IconButton
+        href="https://github.com/a-riveragonzalez"
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{ color: "text.primary" }}
+      >
+        <Iconify width={30} icon="fa6-brands:github" />
+      </IconButton>
+
+      {/* LinkedIn */}
+      <IconButton
+        href="https://www.linkedin.com/in/arelyriveragonzalez"
+        target="_blank"
+        rel="noopener noreferrer"
+        sx={{ color: "text.primary" }}
+      >
+        <Iconify width={30} icon="fa6-brands:linkedin" />
+      </IconButton>
     </Stack>
   );
 }

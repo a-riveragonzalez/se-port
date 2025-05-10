@@ -398,6 +398,7 @@ return (
       />
     
     <Container
+      id="projects"
       sx={{
         position: "relative",
         zIndex: 2,

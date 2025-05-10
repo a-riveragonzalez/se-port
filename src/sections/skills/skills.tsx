@@ -1,52 +1,54 @@
 "use client";
 
-import * as React from 'react';
-import Typography from '@mui/material/Typography';
-import { Button, Container, Grid2 } from '@mui/material';
+import * as React from "react";
+import Typography from "@mui/material/Typography";
+import { Button, Container, Grid2 } from "@mui/material";
 import Image from "next/image";
 import portraitImage from "@/assets/images/portrait_circle.png";
-import SkillGroupCard from './skill-group-card';
-import AccentLine from '@/components/accent-line';
-import { DiagonalWordStripe } from './diagonal-word-stripe';
+import SkillGroupCard from "./skill-group-card";
+import AccentLine from "@/components/accent-line";
+import { DiagonalWordStripe } from "./diagonal-word-stripe";
 
 import languagesIcon from "@/assets/icons/languages.png";
 import frameworksIcon from "@/assets/icons/frameworks.png";
 import toolsIcon from "@/assets/icons/tools.png";
 import databasesIcon from "@/assets/icons/databases.png";
-
+import Iconify from "@/components/iconify";
 
 const skillGroups = [
   {
     id: 1,
     icon: languagesIcon.src,
     title: "Languages",
-    description: "TypeScript | JavaScript ES6+ | HTML5 | CSS3"
+    description: "TypeScript | JavaScript ES6+ | HTML5 | CSS3",
   },
   {
     id: 2,
     icon: frameworksIcon.src,
     title: "Frameworks & Libraries",
-    description: "React.js | Next.js | Node.js | Express.js | Tailwind CSS | Apollo Server | Redux | JQuery"
+    description:
+      "React.js | Next.js | Node.js | Express.js | Tailwind CSS | Apollo Server | Redux | JQuery",
   },
   {
     id: 3,
     icon: toolsIcon.src,
     title: "Tools & Services",
-    description: "AWS (EC2, S3, RDS, Lambda) | Git | GitHub | Sequelize | Figma | Jira | Zendesk"
+    description:
+      "AWS (EC2, S3, RDS, Lambda) | Git | GitHub | Sequelize | Figma | Jira | Zendesk",
   },
   {
     id: 4,
     icon: databasesIcon.src,
     title: "Databases",
-    description: "SQL | MySQL | PostgreSQL | MongoDB | GraphQL | NoSQL"
+    description: "SQL | MySQL | PostgreSQL | MongoDB | GraphQL | NoSQL",
   },
-]
+];
 
 export default function Skills() {
-
   return (
     <>
       <Container
+        id="resume"
         sx={{
           display: "flex",
           flexDirection: "column",
@@ -87,10 +89,10 @@ export default function Skills() {
             order={{ xs: 2, md: 1 }}
             sx={{
               pr: { xs: 0, md: 10, lg: 15 },
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center'
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Image
@@ -107,8 +109,11 @@ export default function Skills() {
             <Button
               variant="contained"
               color="primary"
-              href="#contained-buttons"
+              href="https://drive.google.com/uc?export=download&id=1DyYkTa80ywZfcdoWlMyn_EQGfK682-L4"
+              target="_blank"
+              rel="noopener noreferrer"
               sx={{ borderRadius: 10, mt: 1 }}
+              endIcon={<Iconify icon="eva:download-outline" />}
             >
               Download My Resume
             </Button>
@@ -124,13 +129,15 @@ export default function Skills() {
             <Grid2
               size={6}
               sx={{
-                display: 'flex',
-                flexDirection: 'column',
+                display: "flex",
+                flexDirection: "column",
                 mt: 1, // This offsets the first column by 8px
               }}
             >
               {/* Item 1 */}
-              <Grid2 sx={{ mb: 1 }}> {/* 8px spacing between 1 and 3 */}
+              <Grid2 sx={{ mb: 1 }}>
+                {" "}
+                {/* 8px spacing between 1 and 3 */}
                 <SkillGroupCard
                   id={1}
                   icon={skillGroups[0].icon}
@@ -154,12 +161,14 @@ export default function Skills() {
             <Grid2
               size={6}
               sx={{
-                display: 'flex',
-                flexDirection: 'column',
+                display: "flex",
+                flexDirection: "column",
               }}
             >
               {/* Item 2 */}
-              <Grid2 sx={{ mb: 1 }}> {/* 8px spacing between 2 and 4 */}
+              <Grid2 sx={{ mb: 1 }}>
+                {" "}
+                {/* 8px spacing between 2 and 4 */}
                 <SkillGroupCard
                   id={2}
                   icon={skillGroups[1].icon}
