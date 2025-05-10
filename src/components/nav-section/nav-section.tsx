@@ -1,22 +1,22 @@
 "use client";
 
 import * as React from "react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemText from "@mui/material/ListItemText";
 import MenuIcon from "@mui/icons-material/Menu";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
 import {
+  AppBar,
+  Box,
+  CssBaseline,
+  Divider,
+  Drawer,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Toolbar,
+  Typography,
   Slide,
   styled,
   Tab,
@@ -91,7 +91,10 @@ export default function NavSection(props: NavHideProps) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [value, setValue] = useState(0);
-  const initials = '{ A.R.G }'
+  const initials = "{ A.R.G }";
+
+  // Add state to track if scroll is being caused by clicking nav item
+  const [isScrollingToSection, setIsScrollingToSection] = useState(false);
 
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
@@ -117,6 +120,86 @@ export default function NavSection(props: NavHideProps) {
       handleDrawerToggle();
     }
   };
+
+// Function to determine active section based on scroll position
+const determineActiveSection = () => {
+  // Skip if currently scrolling programmatically
+  if (isScrollingToSection) return;
+  
+  // Get all section elements
+  const sections = navItems.map(item => {
+    const element = document.querySelector(item.id);
+    if (!element) return null;
+    
+    const rect = element.getBoundingClientRect();
+    return {
+      id: item.id,
+      top: rect.top,
+      bottom: rect.bottom,
+      height: rect.height,
+    };
+  }).filter(Boolean);
+  
+  // Exit if no sections found
+  if (sections.length === 0) return;
+  
+  // Calculate viewport center point (or a different reference point)
+  const viewportCenter = window.innerHeight / 2;
+  
+  // Calculate which section has the most visibility in the viewport
+  let activeIndex = 0;
+  let maxVisibility = 0;
+  
+  sections.forEach((section, index) => {
+    if (!section) return;
+    
+    // Calculate how much of the section is visible in the viewport
+    const sectionTop = Math.max(0, section.top);
+    const sectionBottom = Math.min(window.innerHeight, section.bottom);
+    const visibleHeight = Math.max(0, sectionBottom - sectionTop);
+    
+    // Give extra weight to sections near the top of the viewport
+    // This helps when scrolling up
+    const positionBonus = section.top <= 100 ? 200 : 0;
+    const effectiveVisibility = visibleHeight + positionBonus;
+    
+    // Update active section if this one has more visibility
+    if (effectiveVisibility > maxVisibility) {
+      maxVisibility = effectiveVisibility;
+      activeIndex = index;
+    }
+  });
+  
+  // Only update if active section has changed
+  if (activeIndex !== value) {
+    setValue(activeIndex);
+  }
+};
+    
+    // Setup scroll event listener
+    useEffect(() => {
+      // Throttle function to limit how often the scroll handler fires
+      let ticking = false;
+      
+      const handleScroll = () => {
+        if (!ticking) {
+          window.requestAnimationFrame(() => {
+            determineActiveSection();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      };
+      
+      window.addEventListener('scroll', handleScroll);
+      
+      // Initial check to set the active section on mount
+      determineActiveSection();
+      
+      return () => {
+        window.removeEventListener('scroll', handleScroll);
+      };
+    }, [value, isScrollingToSection]);
 
   const drawer = (
     <Box sx={{ textAlign: "center" }}>
