@@ -43,7 +43,7 @@ export default function AboutMe() {
           right: 0,
           bottom: 0,
           backgroundColor: isLightMode ? "#fdfdfd" : "#1D1419",
-          opacity: isLightMode ? 0.7 : 0.5,
+          opacity: isLightMode ? 0.85 : 0.5,
           zIndex: 1,
         }}
       />

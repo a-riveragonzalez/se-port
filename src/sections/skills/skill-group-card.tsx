@@ -6,7 +6,8 @@ import { Box, Stack, Typography, useTheme } from "@mui/material";
 
 interface SkillGroupCardProps {
     id: number;
-    icon: string;
+    iconDark: string;
+    iconLight: string;
     title: string;
     description: string;
     iconWidth?: number;
@@ -15,7 +16,8 @@ interface SkillGroupCardProps {
 
 export default function SkillGroupCard({
     id,
-    icon,
+    iconDark,
+    iconLight,
     title,
     description,
     iconWidth = 40,
@@ -40,7 +42,7 @@ export default function SkillGroupCard({
         >
             <Stack direction="row">
                 <Image
-                    src={icon}
+                    src={isLightMode ? iconLight : iconDark}
                     width={iconWidth}
                     height={iconHeight}
                     alt={`${title} icon`}

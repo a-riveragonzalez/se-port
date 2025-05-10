@@ -8,37 +8,45 @@ import portraitImage from "@/assets/images/portrait_circle.png";
 import SkillGroupCard from "./skill-group-card";
 import AccentLine from "@/components/accent-line";
 import { DiagonalWordStripe } from "./diagonal-word-stripe";
+import Iconify from "@/components/iconify";
 
 import languagesIcon from "@/assets/icons/languages.png";
+import languagesLightIcon from "@/assets/icons/languages_lightmode.png";
 import frameworksIcon from "@/assets/icons/frameworks.png";
+import frameworksLightIcon from "@/assets/icons/frameworks_lightmode.png";
 import toolsIcon from "@/assets/icons/tools.png";
+import toolsLightIcon from "@/assets/icons/tools_lightmode.png";
 import databasesIcon from "@/assets/icons/databases.png";
-import Iconify from "@/components/iconify";
+import databasesLightIcon from "@/assets/icons/databases_lightmode.png";
 
 const skillGroups = [
   {
     id: 1,
-    icon: languagesIcon.src,
+    iconDarkMode: languagesIcon.src,
+    iconLightMode: languagesLightIcon.src,
     title: "Languages",
     description: "TypeScript | JavaScript ES6+ | HTML5 | CSS3",
   },
   {
     id: 2,
-    icon: frameworksIcon.src,
+    iconDarkMode: frameworksIcon.src,
+    iconLightMode: frameworksLightIcon.src,
     title: "Frameworks & Libraries",
     description:
       "React.js | Next.js | Node.js | Express.js | Tailwind CSS | Apollo Server | Redux | JQuery",
   },
   {
     id: 3,
-    icon: toolsIcon.src,
+    iconDarkMode: toolsIcon.src,
+    iconLightMode: toolsLightIcon.src,
     title: "Tools & Services",
     description:
       "AWS (EC2, S3, RDS, Lambda) | Git | GitHub | Sequelize | Figma | Jira | Zendesk",
   },
   {
     id: 4,
-    icon: databasesIcon.src,
+    iconDarkMode: databasesIcon.src,
+    iconLightMode: databasesLightIcon.src,
     title: "Databases",
     description: "SQL | MySQL | PostgreSQL | MongoDB | GraphQL | NoSQL",
   },
@@ -140,7 +148,8 @@ export default function Skills() {
                 {/* 8px spacing between 1 and 3 */}
                 <SkillGroupCard
                   id={1}
-                  icon={skillGroups[0].icon}
+                  iconDark={skillGroups[0].iconDarkMode}
+                  iconLight={skillGroups[0].iconLightMode}
                   title={skillGroups[0].title}
                   description={skillGroups[0].description}
                 />
@@ -150,7 +159,8 @@ export default function Skills() {
               <Grid2>
                 <SkillGroupCard
                   id={3}
-                  icon={skillGroups[2].icon}
+                  iconDark={skillGroups[2].iconDarkMode}
+                  iconLight={skillGroups[2].iconLightMode}
                   title={skillGroups[2].title}
                   description={skillGroups[2].description}
                 />
@@ -171,7 +181,8 @@ export default function Skills() {
                 {/* 8px spacing between 2 and 4 */}
                 <SkillGroupCard
                   id={2}
-                  icon={skillGroups[1].icon}
+                  iconDark={skillGroups[1].iconDarkMode}
+                  iconLight={skillGroups[1].iconLightMode}
                   title={skillGroups[1].title}
                   description={skillGroups[1].description}
                 />
@@ -181,7 +192,8 @@ export default function Skills() {
               <Grid2>
                 <SkillGroupCard
                   id={4}
-                  icon={skillGroups[3].icon}
+                  iconDark={skillGroups[3].iconDarkMode}
+                  iconLight={skillGroups[3].iconLightMode}
                   title={skillGroups[3].title}
                   description={skillGroups[3].description}
                 />
