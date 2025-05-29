@@ -64,7 +64,7 @@ const LightDarkSwitch = styled(Switch)(({ theme }) => ({
 export default function ModeSwitch() {
   const { mode, setMode } = useColorScheme();
   // Provide a fallback value so the switch is always controlled.
-  const currentMode = mode || "light";
+  const currentMode = mode || "dark";
 
   return (
     <Box
