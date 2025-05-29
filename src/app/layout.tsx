@@ -23,5 +23,5 @@ export default function RootLayout(props: { children: React.ReactNode }) {
         </AppRouterCacheProvider>
       </body>
     </html>
-  );f
+  );
 }
