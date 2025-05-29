@@ -24,8 +24,21 @@ export async function POST(request: Request) {
     }
 
     // Create transporter using the Gmail service
+    // const transporter = nodemailer.createTransport({
+    //   service: "Gmail",
+    //   auth: {
+    //     user: process.env.GMAIL_USER,
+    //     pass: process.env.GMAIL_APP_PASSWORD,
+    //   },
+    // });
+
+    console.log("GMAIL_USER length:", process.env.GMAIL_USER?.length);
+    console.log("GMAIL_APP_PASSWORD set:", !!process.env.GMAIL_APP_PASSWORD);
+
     const transporter = nodemailer.createTransport({
-      service: "Gmail",
+      host: 'smtp.gmail.com',
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.GMAIL_USER,
         pass: process.env.GMAIL_APP_PASSWORD,

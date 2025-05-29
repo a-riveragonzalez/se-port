@@ -73,7 +73,7 @@ export default function HeroContent() {
         <Button
           variant="outlined"
           color="primary"
-          href="https://drive.google.com/uc?export=download&id=1DyYkTa80ywZfcdoWlMyn_EQGfK682-L4"
+          href="https://drive.google.com/uc?export=download&id=1dmOgW6cLu2aiT7rZeJrUnvIi59QSXlVo"
           target="_blank"
           rel="noopener noreferrer"
           sx={{ borderRadius: 10 }}
